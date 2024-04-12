@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
+import Pedido from './Pedido'
 
 const App = () => {
     return(
@@ -13,59 +14,35 @@ const App = () => {
                 </div>
             </div>
 
+
         <div className="row">
 
             <div className="col-sm-12 col-lg-4">
-               <div className="card">
-                <div className="card-header text-muted">
-                    20/04/2023
-                </div>
-                <div className="card-body d-flex">
-                    <div className="d-flex align-items-center">
-                        <i className="fa-solid fa-house fa-2x"></i>
-                    </div>
-                    <div className="flex-grow-1 ms-2 border p-2">
-                        <h4 className="text-center">Livro</h4>
-                        <p className="text-center">Concrete Mathematics - Donald Knuth</p>
-                    </div>
-                </div>
-
-               </div>
+               <Pedido
+               data="21/04/2024"
+               icone="fa-solid fa-hdd fa-2x"
+               titulo="SSD"
+               descricao="SSD A400 256GB"/>
             </div>
+
 
             <div className="col-sm-12 col-lg-4">
-             <div className="card">
-                <div className="card-header text-muted">
-                    21/04/2023
-                </div>
-                <div className="card-body d-flex">
-                    <div className="d-flex align-items-center">
-                        <i className="fa-solid fa-laptop fa-2x"></i>
-                    </div>
-                    <div className="flex-grow-1 ms-2 border p-2">
-                        <h4 className="text-center">Notebook</h4>
-                        <p className="text-center">i7 - 16GB</p>
-                    </div>
-                </div>
-               </div>   
+                <Pedido
+                data="22/04/2024"
+                icone="fa-solid fa-book fa-2x"
+                titulo="Livro"
+                descricao="Concrete Mathematics - Donald Knuth"/>
             </div>
 
+
             <div className="col-sm-12 col-lg-4">
-                 <div className="card">
-                <div className="card-header text-muted">
-                    22/04/2023
-                </div>
-                <div className="card-body d-flex">
-                    <div className="d-flex align-items-center">
-                        <i className="fa-solid fa-memory fa-2x"></i>
-                    </div>
-                    <div className="flex-grow-1 ms-2 border p-2">
-                        <h4 className="text-center">SSD</h4>
-                        <p className="text-center">256GB</p>
-                    </div>
-                </div>
-               </div>   
+                <Pedido
+                data="23/04/2024"
+                icone="fa-solid fa-laptop fa-2x"
+                titulo="Notebook"
+                descricao="Notebook 8GB i7"/>
             </div>
+
 
         </div>
         </div>
