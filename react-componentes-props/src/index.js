@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import Pedido from './Pedido'
+import Cartao from './Cartao'
 
 const App = () => {
     return(
@@ -18,32 +19,33 @@ const App = () => {
         <div className="row">
 
             <div className="col-sm-12 col-lg-4">
-               <Pedido
-               data="21/04/2024"
-               icone="fa-solid fa-hdd fa-2x"
-               titulo="SSD"
-               descricao="SSD A400 256GB"/>
+                <Cartao cabecalho="21/04/2024">
+                 <Pedido
+                    icone="fa-solid fa-hdd fa-2x"
+                    titulo="SSD"
+                    descricao="SSD A400 256GB"/>
+                </Cartao>
+            </div>
+
+            <div className="col-sm-12 col-lg-4">
+                <Cartao cabecalho="22/04/2024">
+                 <Pedido
+                    icone="fa-solid fa-book fa-2x"
+                    titulo="Livro"
+                    descricao="Concrete Mathematics - Donald Knuth"/>
+                </Cartao>
             </div>
 
 
             <div className="col-sm-12 col-lg-4">
-                <Pedido
-                data="22/04/2024"
-                icone="fa-solid fa-book fa-2x"
-                titulo="Livro"
-                descricao="Concrete Mathematics - Donald Knuth"/>
+                <Cartao cabecalho="23/04/2024">
+                 <Pedido
+                    icone="fa-solid fa-laptop fa-2x"
+                    titulo="Notebook"
+                    descricao="Notebook 8GB i7"/>
+                </Cartao>
             </div>
-
-
-            <div className="col-sm-12 col-lg-4">
-                <Pedido
-                data="23/04/2024"
-                icone="fa-solid fa-laptop fa-2x"
-                titulo="Notebook"
-                descricao="Notebook 8GB i7"/>
-            </div>
-
-
+            
         </div>
         </div>
     )
