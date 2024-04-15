@@ -38,7 +38,7 @@ const App = () => {
                  <Pedido
                     icone="fa-solid fa-hdd fa-2x"
                     titulo="SSD"
-                    descricao="SSD A400 256GB"/>
+                    descricao="SSD A400 256GB"  />
                     {componenteFeedback}
                 </Cartao>
             </div>
