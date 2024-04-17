@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import EstacaoClimatica from './EstacaoClimatica'
 
 //componente definido via classe 
-class App extends React.Component{
+class App extends React.Component {
     // constructor(props){
     //     super(props)
     //     this.state = {
@@ -28,15 +28,15 @@ class App extends React.Component{
         mensagemDeErro: null
     }
 
-    componentDidMount(){
-        this.obterLocalizacao()
+    componentDidMount() {
+
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         console.log('componentDidUpdate')
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         console.log('componentWillUnmount')
     }
 
@@ -68,11 +68,11 @@ class App extends React.Component{
             (posicao) => {
                 //quando estiver disponivel:
                 //extrair a data atual do sistema
-                    let dataAtual = new Date ()
+                let dataAtual = new Date()
                 //encontrar a estacao climatica usando a data e o local
-                    let estacao = this.obterEstacao(dataAtual, posicao.coords.latitude)
+                let estacao = this.obterEstacao(dataAtual, posicao.coords.latitude)
                 //acessar o mapa de icones e pegar aquele que esta associado a estacao detectada
-                    let icone = this.icones[estacao] //acesso a um objeto
+                let icone = this.icones[estacao] //acesso a um objeto
                 //atualizar o estado
                 this.setState({
                     latitude: posicao.coords.latitude,
@@ -95,29 +95,36 @@ class App extends React.Component{
     icones = {
         'Primavera': 'fa-seedling',
         'Verão': 'fa-sun',
-        'Outono': 'fa-canadian-maple-leaf',
+        'Outono': 'fa-leaf',
         'Inverno': 'fa-snowflake'
     }
 
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
-    render(){
+    render() {
         console.log('render')
-        return(
+        //console.log(this.state)
+        return (
             <div className="container mt-4">
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-8">
-                       <EstacaoClimatica 
-                        latitude={this.state.latitude}
-                        longitude={this.state.longitude}
-                        estacao={this.state.estacao}
-                        data={this.state.data}
-                        icone={this.state.icone}
-                        mensagemDeErro={this.state.mensagemDeErro}
-                        obterLocalizacao={this.obterLocalizacao}
-                       />
+                        {
+                            this.state.mensagemDeErro ?
+                                <p className='border roundead p-2 fs-1 text-center'>
+                                    É preciso dar acesso. Por favor, refaça o procedimento
+                                </p> :
+                                <EstacaoClimatica
+                                    latitude={this.state.latitude}
+                                    longitude={this.state.longitude}
+                                    estacao={this.state.estacao}
+                                    data={this.state.data}
+                                    icone={this.state.icone}
+                                    mensagemDeErro={this.state.mensagemDeErro}
+                                    obterLocalizacao={this.obterLocalizacao}
+                                />
+                        }
                     </div>
                 </div>
             </div>
