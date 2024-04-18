@@ -3,6 +3,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import EstacaoClimatica from './EstacaoClimatica'
+import Loading from './Loading'
 
 //componente definido via classe 
 class App extends React.Component {
@@ -29,7 +30,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-
+        this.obterLocalizacao()
     }
 
     componentDidUpdate() {
@@ -111,6 +112,8 @@ class App extends React.Component {
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-8">
                         {
+                            !this.state.latitude && !this.state.mensagemDeErro ?
+                            <Loading mensagem="Por favor, libere o acesso"/> :
                             this.state.mensagemDeErro ?
                                 <p className='border roundead p-2 fs-1 text-center'>
                                     É preciso dar acesso. Por favor, refaça o procedimento
