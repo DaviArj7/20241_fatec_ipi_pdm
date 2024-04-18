@@ -3,44 +3,46 @@ import { InputText } from 'primereact/inputtext'
 import { Button } from 'primereact/button'
 
 export default class Busca extends Component {
-    //definindo estado de um componente react
     state = {
         termoDaBusca: ''
     }
 
     onTermoAlterado = (event) => {
         console.log(event.target.value)
-        this.setState({termoDaBusca: event.target.value})
+        this.setState({ termoDaBusca: event.target.value })
     }
 
     onFormSubmit = (event) => {
         event.preventDefault()
+        this.props.onBuscaRealizada()
     }
 
-  render() {
-    return (
-        <form onSubmit={this.onFormSubmit}>
-      <div class="flex flex-column">
-        <span className="p-input-icon-left w-full">
-            <i className="pi pi-search ml-2"/>
-            <InputText 
-            value={this.state.termoDaBusca}
-            className='w-full text-center'
-            onChange={this.onTermoAlterado}
-            placeholder={this.props.dica} 
-            />
-        </span>
-        <Button
-        label='OK'
-        className='p-button-outlined mt-2'
-        />
-      </div>
-        </form>
-    )
-  }
+    render() {
+        return (
+            <form onSubmit={this.onFormSubmit}>
+                <div className="flex flex-column">
+                    <div className="flex flex-column">
+                        <span className="p-input-icon-left w-full">
+                            <i className="pi pi-search ml-2" />
+                            <InputText
+                                value={this.state.termoDaBusca}
+                                className='w-full text-center'
+                                onChange={this.onTermoAlterado}
+                                placeholder={this.props.dica}
+                            />
+                        </span>
+                        <Button
+                            label="OK"
+                            className='p-button-outlined mt-2'
+                            type="submit"
+                        />
+                    </div>
+                </div>
+            </form>
+        )
+    }
 }
 
 Busca.defaultProps = {
     dica: 'Digite algo que deseja ver...'
 }
-
