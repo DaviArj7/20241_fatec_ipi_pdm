@@ -24,7 +24,7 @@ export default class App extends React.Component {
 
     onBuscaRealizada = (termo) => {
         pexelsClient.get('/search', {
-            params: {query: termo, per_page: 4}
+            params: {query: termo, per_page: 6}
         }).then(result => {
             this.setState({photos: result.data.photos})
         })
@@ -51,7 +51,12 @@ export default class App extends React.Component {
                         onBuscaRealizada={this.onBuscaRealizada} />
                 </div>
                 <div className="col-8">
-                    <ListaImagens photos={this.state.photos} />
+                    <div className="grid">
+                     <ListaImagens 
+                     photos={this.state.photos} 
+                     // bootstrap: col-sm-12 col-md-6 col-lg-4 col-xl-3
+                     imgStyle={'col-12 lg:col-6 xl:col-4'}/>
+                    </div>
                 </div>
             </div>
         )
